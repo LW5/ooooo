@@ -11,7 +11,8 @@ export default ({
             goodsDate:"",       //出厂日期
             goodsTime:"",       //保质期
             goodsIntro:"",      //描述
-            goodsPrice:"",  
+            goodsPrice:"", 
+            foodsImg:"", 
           _id:""
         }]
     },
@@ -71,7 +72,7 @@ export default ({
                 headers: {
                     "Content-Type": "application/json"
                 }
-            }).then(res => res.json());
+            }).then();
             // context.commit("assign",data)
              },
 
@@ -84,10 +85,19 @@ export default ({
                     headers: {
                         "Content-Type": "application/json"
                     }
-                }).then(res => res.json());
+                }).then();
                 // context.commit("assign",data)
                  },
-
+                //  修改食品
+                async amend(context,data3) {
+                    await fetch("/foods/amend", {
+                       method: "post",
+                       body: JSON.stringify(data3),
+                       headers: {
+                           "Content-Type": "application/json"
+                       }
+                   }).then();
+                    },
                
   }
 })
